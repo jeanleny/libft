@@ -6,22 +6,23 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:50:20 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/09 12:06:20 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/11 14:51:19 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char *str;
-	int i;
+	char	*str;
+	size_t	i;
+
 	i = 0;
 	str = (char *) s;
-	while(i < n)
+	while (i < n)
 	{
 		str[i] = c;
 		i++;
 	}
-	return(str);
+	return (str);
 }

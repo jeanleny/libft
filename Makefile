@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lperis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/08 18:28:50 by lperis            #+#    #+#              #
-#    Updated: 2024/10/10 13:42:22 by lperis           ###   ########.fr        #
+#    Created: 2024/10/11 12:41:13 by lperis            #+#    #+#              #
+#    Updated: 2024/10/11 15:59:51 by lperis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,29 +20,41 @@ SRC =	ft_isalnum.c	\
 		ft_bzero.c		\
 		ft_memcpy.c		\
 		ft_memmove.c	\
-		ft_strlcpy.c
+		ft_strlcpy.c	\
+		ft_strlcat.c	\
+		ft_toupper.c	\
+		ft_tolower.c	\
+		ft_strchr.c
 
-NAME = libft.a #var that define the NAME content .a is extension for library
+NAME = libft.a 
+#var that define the NAME content .a is extension for library
 
-RM = rm -f #commande bash to remove all even with errors
+CFLAGS = -Wall -Werror -Wextra
 
-OBJ = $(SRC:.c=.o) #var that compile .c to objetcts files
+RM = rm -f 
+#commande bash to remove all even with errors
 
-all : $(NAME) #command that make execute first (always all)
+OBJ = $(SRC:.c=.o) 
+#var that compile .c to objetcts files
 
-$(NAME) :	$(OBJ)	#redefine the content of object || compile with ar and the -rc flag
-			ar -rc	$(NAME) $(OBJ)	
+all : $(NAME) 
+#command that make execute first (always all)
+
+$(NAME) :	$(OBJ)
+			ar -rc $(NAME) $(OBJ)	
 #ar take the library indexed by OBJ
 #r is flag to insert members(name for files)
 #c is flag that create the archive.
 
 clean : 
-	$(RM) $(OBJ)	#clean call RM wich is the command bash to remove all even with errors
+	$(RM) $(OBJ)	
+#clean call RM wich is the command bash to remove all even with errors
 
 fclean :	clean		
 			$(RM) $(NAME)
 
-re : fclean libft.a
+re : fclean all
 
-.PHONY : clean fclean all re	#.PHONY is use to call ONLY the command that are present in the
-								# makefile. it avoid relink (calling another command with same name
+.PHONY : clean fclean all re	
+#.PHONY is use to call ONLY the command that are present in the
+# makefile. it avoid relink (calling another command with same name

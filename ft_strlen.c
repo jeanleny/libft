@@ -6,17 +6,18 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:13:45 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/08 22:24:24 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/11 14:53:59 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
+
 	i = 0;
-	while(*str++)
+	while (*str++)
 		i++;
-	return(i);
+	return (i);
 }

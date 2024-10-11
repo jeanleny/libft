@@ -6,23 +6,20 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 10:02:29 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/09 12:15:12 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/11 14:27:41 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	char *str;
-	size_t i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
 	str = (char *) s;
-	
-	while(i < n)
+	while (i < n)
 	{
 		str[i] = '\0';
 		i++;

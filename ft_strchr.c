@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 10:35:33 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/11 14:53:36 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/11 15:30:00 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/11 16:11:15 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h" 
+#include "libft.h"
 #include <string.h>
+#include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-
-	i = 0;
-	if (size != 0)
+	c = (unsigned char)c;
+	while (*s != c && *s)
 	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		s++;
 	}
-	return (ft_strlen(src));
+	if(c == *s)
+		return ((char *)s);
+	return (NULL);
 }
 
 /*int main(void)
 {
-	char src[500] = "nood";
-	char dest[500] = "ouidd";
-	size_t size = ft_strlcpy(dest, src, 0);
-	printf("%zu\n", size);
-	printf("%s",dest);
-}*/
+	const char s[500] = "ouiiiiijii";
+	const char s1[500] = "ouiiiiijii";
+	int c = '\0';
+	int c1 = '\0';
+	char *res = strchr(s, c);
+	char *res1 = ft_strchr(s1, c1);
+	printf("%s\n", res);
+	printf("%s\n", res1);
+}
+*/
+
