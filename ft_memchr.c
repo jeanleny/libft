@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 15:30:00 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/13 19:55:03 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/13 19:57:17 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/14 09:58:12 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	c = (unsigned char)c;
-	while (*s != c && *s)
+	unsigned char	*cast_s;
+
+	c = (unsigned char) c;
+	cast_s = (unsigned char *) s;
+	while (n)
 	{
-		s++;
+		if (c == *cast_s)
+		{
+			return ((void *)cast_s);
+		}
+		cast_s++;
+		n--;
 	}
-	if (c == *s)
-		return ((char *)s);
 	return (NULL);
 }
-
 /*int main(void)
 {
-	const char s[500] = "ouiiiiijii";
-	const char s1[500] = "ouiiiiijii";
-	int c = '\0';
-	int c1 = '\0';
-	char *res = strchr(s, c);
-	char *res1 = ft_strchr(s1, c1);
+	char tab[500] = "ouidakor";
+	char *res = memchr(tab, 'i', 2);
 	printf("%s\n", res);
-	printf("%s\n", res1);
-}
-*/
+	char tab1[500] = "ouidakor";
+	char *res1 = ft_memchr(tab1, 'i', 2);
+	printf("%s", res1);
+}*/

@@ -6,7 +6,7 @@
 #    By: lperis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 12:41:13 by lperis            #+#    #+#              #
-#    Updated: 2024/10/11 15:59:51 by lperis           ###   ########.fr        #
+#    Updated: 2024/10/21 12:26:53 by lperis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,19 @@ SRC =	ft_isalnum.c	\
 		ft_strlcat.c	\
 		ft_toupper.c	\
 		ft_tolower.c	\
-		ft_strchr.c
-
+		ft_strchr.c		\
+		ft_strrchr.c	\
+		ft_memchr.c		\
+		ft_memcmp.c		\
+		ft_strncmp.c	\
+		ft_strnstr.c	\
+		ft_calloc.c		\
+		ft_atoi.c		\
+		ft_strdup.c		\
+		ft_substr.c		\
+		ft_strjoin.c	\
+		ft_strtrim.c	\
+		ft_split.c		
 NAME = libft.a 
 #var that define the NAME content .a is extension for library
 

@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 16:22:08 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/13 19:54:25 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/15 16:10:48 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/15 19:01:42 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include "libft.h"
+#include "stdlib.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_atoi(const char *nptr)
 {
+	int	res;
+	int	minus;
 	int	i;
-	int	j;
 
-	c = (unsigned char)c;
-	j = -1;
 	i = 0;
-	while (s[i] != '\0')
+	res = 0;
+	minus = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (s[i] == c)
-			j = i;
+		if (nptr[i] == '-')
+			minus = -1;
 		i++;
 	}
-	if (j != -1)
-		return ((char *)&s[j]);
-	else if (c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		res = res * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (res * minus);
 }
 /*int main(void)
 {
-	const char s[500] = "ouiiiiijii";
-	const char s1[500] = "ouiiiiijii";
-	int c = 'j';
-	int c1 = 'j';
-	char *res = strrchr(s, c);
-	char *res1 = ft_strrchr(s1, c1);
-	printf("%s\n", res);
-	printf("%s\n", res1);
+	int res = ft_atoi("   -1234");
+	printf("%d\n",res);
+	int res1 = atoi("   -1234");
+	printf("%d",res1);
 }*/

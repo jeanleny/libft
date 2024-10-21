@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 15:30:00 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/13 19:55:03 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/14 17:49:00 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/17 16:24:01 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	c = (unsigned char)c;
-	while (*s != c && *s)
-	{
-		s++;
-	}
-	if (c == *s)
-		return ((char *)s);
-	return (NULL);
-}
+	size_t			max;
+	void			*ptr;
 
-/*int main(void)
-{
-	const char s[500] = "ouiiiiijii";
-	const char s1[500] = "ouiiiiijii";
-	int c = '\0';
-	int c1 = '\0';
-	char *res = strchr(s, c);
-	char *res1 = ft_strchr(s1, c1);
-	printf("%s\n", res);
-	printf("%s\n", res1);
+	max = -1;
+	if (size != 0 && nmemb > max / size)
+		return (NULL);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
-*/
