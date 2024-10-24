@@ -6,7 +6,7 @@
 #    By: lperis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 12:41:13 by lperis            #+#    #+#              #
-#    Updated: 2024/10/24 16:01:49 by lperis           ###   ########.fr        #
+#    Updated: 2024/10/24 17:42:36 by lperis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,9 @@ BONUSSRC = ft_lstnew_bonus.c		\
 
 NAME = libft.a 
 
-CFLAGS = -Wall -Werror -Wextra
+CC = cc
+
+CFLAGS += -Wall -Werror -Wextra
 
 RM = rm -f 
 
@@ -67,11 +69,15 @@ BONUSOBJ = $(BONUSSRC:.c=.o)
 
 all : $(NAME) 
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
 bonus : $(BONUSOBJ) $(OBJ)
 	ar -rc $(NAME) $(OBJ) $(BONUSOBJ)
 
 $(NAME) :	$(OBJ)
-			ar -rc $(NAME) $(OBJ)	
+	ar -rc $(NAME) $(OBJ)	
 
 clean : 
 	$(RM) $(OBJ) $(BONUSOBJ)	

@@ -6,7 +6,7 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:49:31 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/24 12:03:17 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/24 17:36:09 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
 	char	*cast_dest;
 	char	*cast_src;
 
-	i = 0;
 	cast_dest = (char *)dest;
 	cast_src = (char *)src;
 	if (n == 0 || cast_dest == cast_src)
