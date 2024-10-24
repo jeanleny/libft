@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 12:01:17 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/23 17:40:16 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/23 11:02:53 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/23 15:24:24 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void(*del)(void *))
 {
-	char	*str;
-	int		s1_length;
-	int		s2_length;
+	t_list	*new_l;
+	t_list	*new_elem;
+	void	*func_content;
 
-	if (!s1 || !s2)
+	new_l = 0;
+	if (!lst || !f || !del)
 		return (NULL);
-	s1_length = ft_strlen(s1);
-	s2_length = ft_strlen(s2);
-	str = malloc(sizeof(char) * (s1_length + s2_length) + 1);
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, s1_length);
-	ft_memcpy(str + s1_length, s2, s2_length + 1);
-	return (str);
+	while (lst)
+	{
+		func_content = f(lst->content);
+		new_elem = ft_lstnew(func_content);
+		if (!new_elem)
+		{
+			del(func_content);
+			ft_lstclear(&new_l, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_l, new_elem);
+		lst = lst->next;
+	}
+	return (new_l);
 }

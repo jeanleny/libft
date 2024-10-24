@@ -6,7 +6,7 @@
 #    By: lperis <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/11 12:41:13 by lperis            #+#    #+#              #
-#    Updated: 2024/10/21 12:26:53 by lperis           ###   ########.fr        #
+#    Updated: 2024/10/24 16:01:49 by lperis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,36 +36,49 @@ SRC =	ft_isalnum.c	\
 		ft_substr.c		\
 		ft_strjoin.c	\
 		ft_strtrim.c	\
-		ft_split.c		
+		ft_split.c		\
+		ft_itoa.c		\
+		ft_strmapi.c	\
+		ft_striteri.c	\
+		ft_putchar_fd.c	\
+		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
+		ft_putnbr_fd.c	\
+
+BONUSSRC = ft_lstnew_bonus.c		\
+		   ft_lstadd_front_bonus.c	\
+		   ft_lstsize_bonus.c		\
+		   ft_lstlast_bonus.c		\
+		   ft_lstadd_back_bonus.c	\
+		   ft_lstdelone_bonus.c		\
+		   ft_lstclear_bonus.c		\
+		   ft_lstiter_bonus.c		\
+		   ft_lstmap_bonus.c		
+
 NAME = libft.a 
-#var that define the NAME content .a is extension for library
 
 CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f 
-#commande bash to remove all even with errors
 
 OBJ = $(SRC:.c=.o) 
-#var that compile .c to objetcts files
+
+BONUSOBJ = $(BONUSSRC:.c=.o)
 
 all : $(NAME) 
-#command that make execute first (always all)
+
+bonus : $(BONUSOBJ) $(OBJ)
+	ar -rc $(NAME) $(OBJ) $(BONUSOBJ)
 
 $(NAME) :	$(OBJ)
 			ar -rc $(NAME) $(OBJ)	
-#ar take the library indexed by OBJ
-#r is flag to insert members(name for files)
-#c is flag that create the archive.
 
 clean : 
-	$(RM) $(OBJ)	
-#clean call RM wich is the command bash to remove all even with errors
+	$(RM) $(OBJ) $(BONUSOBJ)	
 
 fclean :	clean		
 			$(RM) $(NAME)
 
 re : fclean all
 
-.PHONY : clean fclean all re	
-#.PHONY is use to call ONLY the command that are present in the
-# makefile. it avoid relink (calling another command with same name
+.PHONY : clean fclean all re bonus	

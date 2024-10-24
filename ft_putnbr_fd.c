@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 12:01:17 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/23 17:40:16 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/22 11:49:14 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/23 16:37:58 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	char	*str;
-	int		s1_length;
-	int		s2_length;
+	int	a;
 
-	if (!s1 || !s2)
-		return (NULL);
-	s1_length = ft_strlen(s1);
-	s2_length = ft_strlen(s2);
-	str = malloc(sizeof(char) * (s1_length + s2_length) + 1);
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, s1_length);
-	ft_memcpy(str + s1_length, s2, s2_length + 1);
-	return (str);
+	if (nb == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+	}
+	else if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = nb * -1;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+	}
+	if (nb != -2147483648)
+	{
+		a = (nb % 10 + 48);
+		write(fd, &a, 1);
+	}
 }

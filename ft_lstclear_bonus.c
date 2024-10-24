@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 12:01:17 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/23 17:40:16 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/23 09:16:37 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/23 15:28:12 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*str;
-	int		s1_length;
-	int		s2_length;
+	t_list	*fromdel;
 
-	if (!s1 || !s2)
-		return (NULL);
-	s1_length = ft_strlen(s1);
-	s2_length = ft_strlen(s2);
-	str = malloc(sizeof(char) * (s1_length + s2_length) + 1);
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, s1_length);
-	ft_memcpy(str + s1_length, s2, s2_length + 1);
-	return (str);
+	if (!lst || !del)
+		return ;
+	while (*lst)
+	{
+		fromdel = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = fromdel;
+	}
 }

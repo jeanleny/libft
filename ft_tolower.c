@@ -6,15 +6,9 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 12:10:26 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/11 14:54:21 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/24 15:46:05 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <unistd.h>
-#include "libft.h"
 
 int	ft_tolower(int c)
 {
@@ -22,8 +16,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-
-/*int main(void)
-{
-		ft_toupper(96);
-}*/

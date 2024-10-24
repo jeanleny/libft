@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 12:01:17 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/23 17:40:16 by lperis           ###   ########.fr       */
+/*   Created: 2024/10/23 16:11:16 by lperis            #+#    #+#             */
+/*   Updated: 2024/10/23 16:11:25 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*str;
-	int		s1_length;
-	int		s2_length;
-
-	if (!s1 || !s2)
+	if (!lst)
 		return (NULL);
-	s1_length = ft_strlen(s1);
-	s2_length = ft_strlen(s2);
-	str = malloc(sizeof(char) * (s1_length + s2_length) + 1);
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, s1_length);
-	ft_memcpy(str + s1_length, s2, s2_length + 1);
-	return (str);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

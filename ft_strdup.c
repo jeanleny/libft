@@ -6,12 +6,10 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 19:04:10 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/16 11:56:46 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/24 12:05:28 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s)
@@ -33,8 +31,3 @@ char	*ft_strdup(const char *s)
 	ptr[i] = '\0';
 	return (ptr);
 }
-/*
-int main(void)
-{
-	printf("%s", ft_strdup("ouite"));
-}*/

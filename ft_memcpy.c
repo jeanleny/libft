@@ -6,11 +6,11 @@
 /*   By: lperis <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:31:09 by lperis            #+#    #+#             */
-/*   Updated: 2024/10/11 15:03:10 by lperis           ###   ########.fr       */
+/*   Updated: 2024/10/23 16:32:25 by lperis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
